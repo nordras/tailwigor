@@ -42,12 +42,12 @@ function extractCSSRules(htmlData) {
   }
 
   const data = fs.readFileSync("global.css", "utf8");
-  const extracted = extractRelevantCSSRules(data, classes);
+  const extracted = extractRules(data, classes);
 
   return extracted;
 }
 
-function extractRelevantCSSRules(globalCssData, classes) {
+function extractRules(globalCssData, classes) {
   const classSelectors = Array.from(classes).map(
     (className) => `\\.${className}(?:\\s*\\{|[\\s\\w\\W])*?\\}`
   );
