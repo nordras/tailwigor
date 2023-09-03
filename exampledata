@@ -1,0 +1,206 @@
+[
+  ':root {\r\n' +
+    '  /* Gray Colors */\r\n' +
+    '  --color-gray-100: #f7fafc;\r\n' +
+    '  --color-gray-300: #cbd5e0;\r\n' +
+    '  --color-gray-500: #718096;\r\n' +
+    '  --color-gray-700: #4a5568;\r\n' +
+    '  --color-gray-900: #1a202c;\r\n' +
+    '\r\n' +
+    '  /* Normal Colors */\r\n' +
+    '  --color-red-500: #f56565;\r\n' +
+    '  --color-green-500: #48bb78;\r\n' +
+    '  --color-blue-500: #4299e1;\r\n' +
+    '  --color-indigo-500: #667eea;\r\n' +
+    '  --color-purple-500: #9f7aea;\r\n' +
+    '  --color-yellow-500: #ecc94b;\r\n' +
+    '  --color-pink-500: #ed64a6;\r\n' +
+    '\r\n' +
+    '  /* Pastel Colors */\r\n' +
+    '  --color-gray-100-pastel: #f7fafc;\r\n' +
+    '  --color-green-100-pastel: #e2f1df;\r\n' +
+    '  --color-blue-100-pastel: #d2e0f0;\r\n' +
+    '  --color-pink-100-pastel: #f9c4d2;\r\n' +
+    '  --color-indigo-100-pastel: #d4d4f0;\r\n' +
+    '  --color-purple-100-pastel: #dcd6f7;\r\n' +
+    '  --color-yellow-100-pastel: #f7edcc;\r\n' +
+    '}',
+  '\r\n' +
+    '  /* Gray Colors */\r\n' +
+    '  --color-gray-100: #f7fafc;\r\n' +
+    '  --color-gray-300: #cbd5e0;\r\n' +
+    '  --color-gray-500: #718096;\r\n' +
+    '  --color-gray-700: #4a5568;\r\n' +
+    '  --color-gray-900: #1a202c;\r\n' +
+    '\r\n' +
+    '  /* Normal Colors */\r\n' +
+    '  --color-red-500: #f56565;\r\n' +
+    '  --color-green-500: #48bb78;\r\n' +
+    '  --color-blue-500: #4299e1;\r\n' +
+    '  --color-indigo-500: #667eea;\r\n' +
+    '  --color-purple-500: #9f7aea;\r\n' +
+    '  --color-yellow-500: #ecc94b;\r\n' +
+    '  --color-pink-500: #ed64a6;\r\n' +
+    '\r\n' +
+    '  /* Pastel Colors */\r\n' +
+    '  --color-gray-100-pastel: #f7fafc;\r\n' +
+    '  --color-green-100-pastel: #e2f1df;\r\n' +
+    '  --color-blue-100-pastel: #d2e0f0;\r\n' +
+    '  --color-pink-100-pastel: #f9c4d2;\r\n' +
+    '  --color-indigo-100-pastel: #d4d4f0;\r\n' +
+    '  --color-purple-100-pastel: #dcd6f7;\r\n' +
+    '  --color-yellow-100-pastel: #f7edcc;\r\n',
+  index: 14,
+  input: '/* Colors */\r\n' +
+    ':root {\r\n' +
+    '  /* Gray Colors */\r\n' +
+    '  --color-gray-100: #f7fafc;\r\n' +
+    '  --color-gray-300: #cbd5e0;\r\n' +
+    '  --color-gray-500: #718096;\r\n' +
+    '  --color-gray-700: #4a5568;\r\n' +
+    '  --color-gray-900: #1a202c;\r\n' +
+    '\r\n' +
+    '  /* Normal Colors */\r\n' +
+    '  --color-red-500: #f56565;\r\n' +
+    '  --color-green-500: #48bb78;\r\n' +
+    '  --color-blue-500: #4299e1;\r\n' +
+    '  --color-indigo-500: #667eea;\r\n' +
+    '  --color-purple-500: #9f7aea;\r\n' +
+    '  --color-yellow-500: #ecc94b;\r\n' +
+    '  --color-pink-500: #ed64a6;\r\n' +
+    '\r\n' +
+    '  /* Pastel Colors */\r\n' +
+    '  --color-gray-100-pastel: #f7fafc;\r\n' +
+    '  --color-green-100-pastel: #e2f1df;\r\n' +
+    '  --color-blue-100-pastel: #d2e0f0;\r\n' +
+    '  --color-pink-100-pastel: #f9c4d2;\r\n' +
+    '  --color-indigo-100-pastel: #d4d4f0;\r\n' +
+    '  --color-purple-100-pastel: #dcd6f7;\r\n' +
+    '  --color-yellow-100-pastel: #f7edcc;\r\n' +
+    '}\r\n' +
+    '\r\n' +
+    '* {\r\n' +
+    '  font-family: Helvetica, Arial, sans-serif;\r\n' +
+    '}\r\n' +
+    '\r\n' +
+    '/* Flexbox */\r\n' +
+    '.flex { display: flex; }\r\n' +
+    '.flex-row { flex-direction: row; }\r\n' +
+    '.flex-col { flex-direction: column; }\r\n' +
+    '.justify-center { justify-content: center; }\r\n' +
+    '.items-center { align-items: center; }\r\n' +
+    '\r\n' +
+    '/* Spacing */\r\n' +
+    '\r\n' +
+    '/* Margin*/\r\n' +
+    '.m-1 { margin: 0.25rem; }\r\n' +
+    '.m-2 { margin: 0.5rem; }\r\n' +
+    '.m-3 { margin: 0.75rem; }\r\n' +
+    '.m-4 { margin: 1rem; }\r\n' +
+    '.m-5 { margin: 1.25rem; }\r\n' +
+    '.m-6 { margin: 1.5rem; }\r\n' +
+    '.m-7 { margin: 1.75rem; }\r\n' +
+    '.m-8 { margin: 2rem; }\r\n' +
+    '.m-9 { margin: 2.25rem; }\r\n' +
+    '.m-10 { margin: 2.5rem; }\r\n' +
+    '\r\n' +
+    '/* Padding */\r\n' +
+    '.p-1 { padding: 0.25rem; }\r\n' +
+    '.p-2 { padding: 0.5rem; }\r\n' +
+    '.p-3 { padding: 0.75rem; }\r\n' +
+    '.p-4 { padding: 1rem; }\r\n' +
+    '.p-5 { padding: 1.25rem; }\r\n' +
+    '.p-6 { padding: 1.5rem; }\r\n' +
+    '.p-7 { padding: 1.75rem; }\r\n' +
+    '.p-8 { padding: 2rem; }\r\n' +
+    '.p-9 { padding: 2.25rem; }\r\n' +
+    '.p-10 { padding: 2.5rem; }\r\n' +
+    '\r\n' +
+    '/* Typography */\r\n' +
+    '.text-center { text-align: center; }\r\n' +
+    '.text-left { text-align: left; }\r\n' +
+    '.text-right { text-align: right; }\r\n' +
+    '.text-justify { text-align: justify; }\r\n' +
+    '\r\n' +
+    '.text-xs { font-size: 0.75rem; }\r\n' +
+    '.text-sm { font-size: 0.875rem; }\r\n' +
+    '.text-base { font-size: 1rem; }\r\n' +
+    '.text-xl { font-size: 1.25rem; }\r\n' +
+    '.text-2xl { font-size: 1.5rem; }\r\n' +
+    '.text-3xl { font-size: 1.875rem; }\r\n' +
+    '.text-4xl { font-size: 2.25rem; }\r\n' +
+    '.text-5xl { font-size: 3rem; }\r\n' +
+    '.text-6xl { font-size: 4rem; }\r\n' +
+    '\r\n' +
+    '.font-normal { font-weight: normal; }\r\n' +
+    '.font-semibold { font-weight: 600; }\r\n' +
+    '.font-extrabold { font-weight: 800; }\r\n' +
+    '\r\n' +
+    '.line-through { text-decoration: line-through; }\r\n' +
+    '.underline { text-decoration: underline; }\r\n' +
+    '.no-underline { text-decoration: none; }\r\n' +
+    '\r\n' +
+    '.text-gray-100 { color: var(--color-gray-100); }\r\n' +
+    '.text-gray-300 { color: var(--color-gray-300); }\r\n' +
+    '.text-gray-500 { color: var(--color-gray-500); }\r\n' +
+    '.text-gray-700 { color: var(--color-gray-700); }\r\n' +
+    '.text-gray-900 { color: var(--color-gray-900); }\r\n' +
+    '\r\n' +
+    '.text-red-500 { color: var(--color-red-500); }\r\n' +
+    '.text-green-500 { color: var(--color-green-500); }\r\n' +
+    '.text-blue-500 { color: var(--color-blue-500); }\r\n' +
+    '.text-indigo-500 { color: var(--color-indigo-500); }\r\n' +
+    '.text-purple-500 { color: var(--color-purple-500); }\r\n' +
+    '.text-yellow-500 { color: var(--color-yellow-500); }\r\n' +
+    '.text-pink-500 { color: var(--color-pink-500); }\r\n' +
+    '\r\n' +
+    '/* Media Queries */\r\n' +
+    '@media (max-width: 640px) {\r\n' +
+    '  .sm\\:text-lg { font-size: 1.125rem; }\r\n' +
+    '}\r\n' +
+    '\r\n' +
+    '@media (max-width: 640px) {\r\n' +
+    '  .sm\\:text-sm { font-size: 0.75rem; }\r\n' +
+    '  .sm\\:text-base { font-size: 0.875rem; }\r\n' +
+    '  .sm\\:text-lg { font-size: 1rem; }\r\n' +
+    '}\r\n' +
+    '\r\n' +
+    '@media (max-width: 768px) {\r\n' +
+    '  .md\\:text-sm { font-size: 0.75rem; }\r\n' +
+    '  .md\\:text-base { font-size: 0.875rem; }\r\n' +
+    '  .md\\:text-lg { font-size: 1rem; }\r\n' +
+    '}\r\n' +
+    '\r\n' +
+    '@media (max-width: 1280px) {\r\n' +
+    '  .lg\\:text-sm { font-size: 0.75rem; }\r\n' +
+    '  .lg\\:text-base { font-size: 0.875rem; }\r\n' +
+    '  .lg\\:text-lg { font-size: 1rem; }\r\n' +
+    '}\r\n' +
+    '\r\n' +
+    '/* Borders */\r\n' +
+    '.border { border-width: 1px; border-style: solid; }\r\n' +
+    '.rounded-lg { border-radius: 0.5rem; }\r\n' +
+    '\r\n' +
+    '/** Backgrounds **/\r\n' +
+    '.bg-gray-100 { background-color: var(--color-gray-100); }\r\n' +
+    '.bg-gray-300 { background-color: var(--color-gray-300); }\r\n' +
+    '.bg-gray-500 { background-color: var(--color-gray-500); }\r\n' +
+    '.bg-gray-700 { background-color: var(--color-gray-700); }\r\n' +
+    '.bg-gray-900 { background-color: var(--color-gray-900); }\r\n' +
+    '\r\n' +
+    '.bg-green-100 { background-color: var(--color-green-100); }\r\n' +
+    '.bg-blue-100 { background-color: var(--color-blue-100); }\r\n' +
+    '.bg-pink-100 { background-color: var(--color-pink-100); }\r\n' +
+    '.bg-indigo-100 { background-color: var(--color-indigo-100); }\r\n' +
+    '.bg-purple-100 { background-color: var(--color-purple-100); }\r\n' +
+    '.bg-yellow-100 { background-color: var(--color-yellow-100); }\r\n' +
+    '\r\n' +
+    '.bg-gray-500 { background-color: var(--color-gray-500); }\r\n' +
+    '.bg-green-500 { background-color: var(--color-green-500); }\r\n' +
+    '.bg-blue-500 { background-color: var(--color-blue-500); }\r\n' +
+    '.bg-pink-500 { background-color: var(--color-pink-500); }\r\n' +
+    '.bg-indigo-500 { background-color: var(--color-indigo-500); }\r\n' +
+    '.bg-purple-500 { background-color: var(--color-purple-500); }\r\n' +
+    '.bg-yellow-500 { background-color: var(--color-yellow-500); }',
+  groups: undefined
+]

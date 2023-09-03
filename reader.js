@@ -1,4 +1,23 @@
 const fs = require("fs");
+const http = require("http");
+const chokidar = require("chokidar");
+
+chokidar.watch("./reader.js").on("all", (event, path) => {
+  console.log(event, path);
+});
+
+const host = "localhost";
+const port = 8000;
+
+const requestListener = function (req, res) {
+  res.writeHead(200);
+  res.end("HTTP Server on");
+};
+
+const server = http.createServer(requestListener);
+server.listen(port, host, () => {
+  console.log(`Server is running on http://${host}:${port}`);
+});
 
 /**
  * 1. Ler o arquivo
@@ -13,7 +32,7 @@ fs.readFile("index.html", "utf8", (err, htmlData) => {
   const CSS = extractCSSRules(htmlData);
 
   // Cria um arquivo css
-  fs.writeFile("main.css", CSS.join("\n"), "utf8", (err) => {
+  fs.writeFile("./main.css", CSS.join("\n"), "utf8", (err) => {
     if (err) {
       console.error("Error:", err);
       return;
@@ -48,11 +67,29 @@ function extractCSSRules(htmlData) {
 }
 
 function extractRules(globalCssData, classes) {
+  // Extrai regras do :root
+  const rootRegex = /:root\s*{([\s\S]*?)}/;
+  const rootMatch = globalCssData.match(rootRegex);
+  let rootRules = "";
+
+  rootRules = rootMatch[0];
+
+  const mediaRegex = /@media[^{]+\{([\s\S]+?})\s*}/g;
+  const mediaMatches = globalCssData.match(mediaRegex) || [];
+
+  // Extrair regras de classe
   const classSelectors = Array.from(classes).map(
-    (className) => `\\.${className}(?:\\s*\\{|[\\s\\w\\W])*?\\}`
+    (className) =>
+      `\\.${className.replace(/\\/g, "\\\\")}(?:\\s*\\{|[\\s\\w\\W])*?\\}`
   );
+
   const classRegex = new RegExp(classSelectors.join("|"), "g");
-  const relevantRules = globalCssData.match(classRegex) || [];
+  let relevantRules = globalCssData.match(classRegex) || [];
+
+  // Concatena regras encontradas
+  if (rootRules) {
+    relevantRules = [rootRules, mediaMatches, ...relevantRules];
+  }
 
   return relevantRules;
 }

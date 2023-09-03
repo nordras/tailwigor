@@ -1,3 +1,44 @@
+:root {
+  /* Gray Colors */
+  --color-gray-100: #f7fafc;
+  --color-gray-300: #cbd5e0;
+  --color-gray-500: #718096;
+  --color-gray-700: #4a5568;
+  --color-gray-900: #1a202c;
+
+  /* Normal Colors */
+  --color-red-500: #f56565;
+  --color-green-500: #48bb78;
+  --color-blue-500: #4299e1;
+  --color-indigo-500: #667eea;
+  --color-purple-500: #9f7aea;
+  --color-yellow-500: #ecc94b;
+  --color-pink-500: #ed64a6;
+
+  /* Pastel Colors */
+  --color-gray-100-pastel: #f7fafc;
+  --color-green-100-pastel: #e2f1df;
+  --color-blue-100-pastel: #d2e0f0;
+  --color-pink-100-pastel: #f9c4d2;
+  --color-indigo-100-pastel: #d4d4f0;
+  --color-purple-100-pastel: #dcd6f7;
+  --color-yellow-100-pastel: #f7edcc;
+}
+@media (max-width: 640px) {
+  .sm\:text-lg { font-size: 1.125rem; }
+},@media (max-width: 640px) {
+  .sm\:text-sm { font-size: 0.75rem; }
+  .sm\:text-base { font-size: 0.875rem; }
+  .sm\:text-lg { font-size: 1rem; }
+},@media (max-width: 768px) {
+  .md\:text-sm { font-size: 0.75rem; }
+  .md\:text-base { font-size: 0.875rem; }
+  .md\:text-lg { font-size: 1rem; }
+},@media (max-width: 1280px) {
+  .lg\:text-sm { font-size: 0.75rem; }
+  .lg\:text-base { font-size: 0.875rem; }
+  .lg\:text-lg { font-size: 1rem; }
+}
 .flex { display: flex; }
 .flex-row { flex-direction: row; }
 .flex-col { flex-direction: column; }
