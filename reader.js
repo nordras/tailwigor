@@ -4,6 +4,9 @@ const chokidar = require("chokidar");
 
 chokidar.watch("./reader.js").on("all", (event, path) => {
   console.log(event, path);
+
+  // Le arquivo index e
+  generateStyles();
 });
 
 const host = "localhost";
@@ -19,34 +22,35 @@ server.listen(port, host, () => {
   console.log(`Server is running on http://${host}:${port}`);
 });
 
-/**
- * 1. Ler o arquivo
- * 2. Tratar esse monte de erro
- */
-fs.readFile("index.html", "utf8", (err, htmlData) => {
-  if (err) {
-    console.error("Erro de leitura no index:", err);
-    return;
-  }
-
-  const CSS = extractCSSRules(htmlData);
-
-  // Cria um arquivo css
-  fs.writeFile("./main.css", CSS.join("\n"), "utf8", (err) => {
+function generateStyles() {
+  fs.readFile("index.html", "utf8", (err, htmlData) => {
     if (err) {
-      console.error("Error:", err);
+      console.error("Erro de leitura no index:", err);
       return;
     }
-    console.log("File genereated");
-  });
-});
 
+    const CSS = extractCSSRules(htmlData);
+
+    // Cria um arquivo css
+    fs.writeFile("./main.css", CSS.join("\n"), "utf8", (err) => {
+      if (err) {
+        console.error("Error:", err);
+        return;
+      }
+      console.log("File genereated 2");
+    });
+  });
+}
 /* 
 1. Varrer o html
 2. aplicar um string regex para achar as classes
 3. Armazenar as classes
 4. TODO checar o uso de Set https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set para não ter q filtrar
 5. TODO checar https://css-tricks.com/how-do-you-remove-unused-css-from-a-site/
+ * 
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match
+ * https://en.wikipedia.org/wiki/WebSocket
+ * https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
 */
 function extractCSSRules(htmlData) {
   const classRegex = /class="([^"]+)"/g;
@@ -75,7 +79,8 @@ function extractRules(globalCssData, classes) {
   rootRules = rootMatch[0];
 
   const mediaRegex = /@media[^{]+\{([\s\S]+?})\s*}/g;
-  const mediaMatches = globalCssData.match(mediaRegex) || [];
+  let mediaMatches = globalCssData.match(mediaRegex) || [];
+  mediaMatches = mediaMatches.join("\n");
 
   // Extrair regras de classe
   const classSelectors = Array.from(classes).map(
@@ -93,3 +98,8 @@ function extractRules(globalCssData, classes) {
 
   return relevantRules;
 }
+
+/**
+
+ * 
+ */
