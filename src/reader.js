@@ -2,28 +2,70 @@ const fs = require("fs");
 const http = require("http");
 const chokidar = require("chokidar");
 
-chokidar.watch("./reader.js").on("all", (event, path) => {
-  console.log(event, path);
-
-  // Le arquivo index e
-  generateStyles();
-});
+// chokidar.watch("./src/*").on("all", (event, path) => {
+//   generateStyles();
+// });
 
 const host = "localhost";
-const port = 8000;
+const port = 3000;
+
+function watcher(req, res) {
+  // const chokiWatcher = chokidar
+  //   .watch(".*", {
+  //     ignored: /(^|[\/\\])\../,
+  //     persistent: true,
+  //   })
+  //   .on("all", (event, path) => {
+  //     console.log(event, path);
+  //     generateStyles();
+  //   });
+
+  const chokiWatcher = chokidar.watch(".", {
+    ignored: /(^|[\/\\])\../,
+    persistent: true,
+  });
+
+  const sendReload = () => {
+    generateStyles();
+    res.end("reload");
+    chokiWatcher.close();
+  };
+
+  chokiWatcher.on("change", sendReload);
+
+  req.on("close", () => {
+    chokiWatcher.close();
+  });
+}
 
 const requestListener = function (req, res) {
-  res.writeHead(200);
-  res.end("HTTP Server on");
+  if (req.url === "/wait-for-change") {
+    watcher(req, res);
+  } else {
+    fs.readFile(
+      `./src/${req.url === "/" ? "/index.html" : req.url}`,
+      (err, data) => {
+        if (err) {
+          res.writeHead(404);
+          res.end(JSON.stringify(err));
+          return;
+        }
+        res.writeHead(200);
+        res.end(data);
+      }
+    );
+  }
 };
 
 const server = http.createServer(requestListener);
+
 server.listen(port, host, () => {
   console.log(`Server is running on http://${host}:${port}`);
 });
 
 function generateStyles() {
-  fs.readFile("index.html", "utf8", (err, htmlData) => {
+  // Read target html
+  fs.readFile("./src/index.html", "utf8", (err, htmlData) => {
     if (err) {
       console.error("Erro de leitura no index:", err);
       return;
@@ -31,16 +73,17 @@ function generateStyles() {
 
     const CSS = extractCSSRules(htmlData);
 
-    // Cria um arquivo css
-    fs.writeFile("./main.css", CSS.join("\n"), "utf8", (err) => {
+    // Create or Overwrite main css file with the extracted CSS rules
+    fs.writeFile("./src/main.css", CSS.join("\n"), "utf8", (err) => {
       if (err) {
         console.error("Error:", err);
         return;
       }
-      console.log("File genereated 2");
+      console.log("File genereated");
     });
   });
 }
+
 /* 
 1. Varrer o html
 2. aplicar um string regex para achar as classes
@@ -64,14 +107,19 @@ function extractCSSRules(htmlData) {
     });
   }
 
-  const data = fs.readFileSync("global.css", "utf8");
+  const data = fs.readFileSync("./src/global.css", "utf8");
+
+  // Get rules from global.css
   const extracted = extractRules(data, classes);
 
   return extracted;
 }
 
+/**
+ * Extract rules from global.css, it also compare the matched classes used in index and return it
+ * Extract root rules and increment at first position
+ */
 function extractRules(globalCssData, classes) {
-  // Extrai regras do :root
   const rootRegex = /:root\s*{([\s\S]*?)}/;
   const rootMatch = globalCssData.match(rootRegex);
   let rootRules = "";
@@ -98,8 +146,3 @@ function extractRules(globalCssData, classes) {
 
   return relevantRules;
 }
-
-/**
-
- * 
- */

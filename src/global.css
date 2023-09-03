@@ -88,6 +88,9 @@
 .underline { text-decoration: underline; }
 .no-underline { text-decoration: none; }
 
+.text-white { color: white; }
+.text-black { color: black; }
+
 .text-gray-100 { color: var(--color-gray-100); }
 .text-gray-300 { color: var(--color-gray-300); }
 .text-gray-500 { color: var(--color-gray-500); }
@@ -130,6 +133,9 @@
 .rounded-lg { border-radius: 0.5rem; }
 
 /** Backgrounds **/
+.bg-red {background-color: red;}
+.bg-blue {background-color: blue;}
+
 .bg-gray-100 { background-color: var(--color-gray-100); }
 .bg-gray-300 { background-color: var(--color-gray-300); }
 .bg-gray-500 { background-color: var(--color-gray-500); }

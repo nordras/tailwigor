@@ -2,9 +2,9 @@
   "name": "tailwigor",
   "version": "0.0.1",
   "description": "Proof of concept inspired by tailwind made with objective to study",
-  "main": "reader.js",
+  "main": "src/reader.js",
   "scripts": {
-    "start": "node ./reader.js",
+    "start": "node ./src/reader.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

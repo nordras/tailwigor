@@ -1,4 +1,4 @@
-[
+const example = [
   ':root {\r\n' +
     '  /* Gray Colors */\r\n' +
     '  --color-gray-100: #f7fafc;\r\n' +
