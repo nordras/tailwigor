@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="main.css">
   <title>Styled HTML Page</title>
-  <script>
+  <!-- <script>
     function waitForReload() {
       fetch('/wait-for-change').then(response => response.text()).then(data => {
         if (data === 'reload') {
@@ -19,6 +19,25 @@
     }
 
     waitForReload();
+  </script> -->
+  <script type="text/javascript">
+    // Criar um novo WebSocket.
+    var ws = new WebSocket('ws://localhost:3000');
+
+    // Add connection
+    ws.addEventListener('open', function(event) {
+      ws.send('WebSocket client started');
+    });
+
+    // Receive msg
+    ws.addEventListener('message', function(event) {
+      console.log('Message from server:', event);
+    });
+
+    function sendMessage() {
+      console.log('sendMessage')
+      ws.send("Button clicked!");
+    }
   </script>
 </head>
 <body>
@@ -49,6 +68,9 @@
         <p class="text-white">Box 3 (lg)</p>
       </div>
     </div>
+    <!-- Test de websocket -->
+    <br/>
+    <button id="sendButton" onclick="sendMessage()">Send Message</button>
   </div>
 </body>
 </html>

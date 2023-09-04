@@ -5,6 +5,7 @@
   "main": "src/reader.js",
   "scripts": {
     "start": "node ./src/reader.js",
+    "ws": "node ./src/ws-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -16,6 +17,7 @@
   "author": "Igor Paiva Ferreira",
   "license": "MIT",
   "dependencies": {
-    "chokidar": "^3.5.3"
+    "chokidar": "^3.5.3",
+    "ws": "^8.13.0"
   }
 }

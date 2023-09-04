@@ -6,63 +6,6 @@ const chokidar = require("chokidar");
 //   generateStyles();
 // });
 
-const host = "localhost";
-const port = 3000;
-
-function watcher(req, res) {
-  // const chokiWatcher = chokidar
-  //   .watch(".*", {
-  //     ignored: /(^|[\/\\])\../,
-  //     persistent: true,
-  //   })
-  //   .on("all", (event, path) => {
-  //     console.log(event, path);
-  //     generateStyles();
-  //   });
-
-  const chokiWatcher = chokidar.watch(".", {
-    ignored: /(^|[\/\\])\../,
-    persistent: true,
-  });
-
-  const sendReload = () => {
-    generateStyles();
-    res.end("reload");
-    chokiWatcher.close();
-  };
-
-  chokiWatcher.on("change", sendReload);
-
-  req.on("close", () => {
-    chokiWatcher.close();
-  });
-}
-
-const requestListener = function (req, res) {
-  if (req.url === "/wait-for-change") {
-    watcher(req, res);
-  } else {
-    fs.readFile(
-      `./src/${req.url === "/" ? "/index.html" : req.url}`,
-      (err, data) => {
-        if (err) {
-          res.writeHead(404);
-          res.end(JSON.stringify(err));
-          return;
-        }
-        res.writeHead(200);
-        res.end(data);
-      }
-    );
-  }
-};
-
-const server = http.createServer(requestListener);
-
-server.listen(port, host, () => {
-  console.log(`Server is running on http://${host}:${port}`);
-});
-
 function generateStyles() {
   // Read target html
   fs.readFile("./src/index.html", "utf8", (err, htmlData) => {
